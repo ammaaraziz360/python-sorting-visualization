@@ -57,7 +57,6 @@ def bubbleSort(nums):
             if nums[j] > nums[j+1]:
                 nums[j], nums[j+1] = nums[j+1], nums[j]
         
-        animation.displayArray()
     
 
 def quickSort(nums, i , j):

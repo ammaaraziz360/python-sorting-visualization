@@ -59,38 +59,41 @@ def bubbleSort(nums):
         
     
 
-def quickSort(nums, i , j):
+def quickSort(nums, i, j):
     if i < j:
         pivot = partition(nums, i, j)
 
         quickSort(nums, i, pivot-1)
-        quickSort(nums, pivot, j)
+        quickSort(nums, pivot+1, j)
 
 def partition(nums, i, j):
-    # last pivot
-    # pivoter = j
+    
+    # pivot_index = j
     
     # median of three
     # pivots = sorted([random.randint(i, j),random.randint(i, j),random.randint(i, j)])
     # pivoter = pivots[1]
 
-    # random pivot
-    pivoter = random.randint(i, j)
+    #random pivot
+    #pivoter = random.randint(i, j)
 
-    nums[pivoter], nums[-1] = nums[-1], nums[pivoter]
+    #nums[pivoter], nums[j] = nums[j], nums[pivoter]
+
+    pivot_index = i
+    pivot = nums[pivot_index]
 
     while i < j:
-        while i < len(nums) and nums[i] <= nums[pivoter]:
+        while i < len(nums) and nums[i] <= pivot:
             i += 1
-        while nums[j] > nums[pivoter]:
+        while nums[j] > pivot:
             j -= 1
         if i < j:
             nums[i], nums[j] = nums[j], nums[i]
 
-    nums[pivoter], nums[j] = nums[j], nums[pivoter]
+    nums[pivot_index], nums[j] = nums[j], nums[pivot_index]
 
     return j
-
+    
 def binarySearch(nums, start, end, num_to_find):
     if len(nums) > 1:
         mp = (start+end) // 2

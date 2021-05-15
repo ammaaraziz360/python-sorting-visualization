@@ -6,7 +6,10 @@ from sorts import runSorter
 
 def main():
     sorts = input("Enter sort\n 'ms' for mergesort,\n 'ss' for selection sort,\n 'is' for insertion sort,\n 'qs' for quick sort,\n 'bs' for bubble sort,\n or 'all' for all sorts\n")
-    sorts = sorts.split()
+    if sorts == 'all':
+        sorts = ['ss', 'ms', 'qs', 'is', 'bs']
+    else:
+        sorts = sorts.split()
     max_size = int(input('Enter max array elements\n'))
     inc = int(input('Enter size increment\n'))
 
